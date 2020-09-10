@@ -29,11 +29,15 @@
 			grid-column: 1 / -1;
 			justify-self: center;
 			width: 50%;
-			.dropzone {
-			}
 		}
 
 		.button {
+			grid-column: 1 / -1;
+			justify-self: center;
+			width: 50%;
+			max-width: 30rem;
+		}
+		.files {
 			grid-column: 1 / -1;
 			justify-self: center;
 			width: 50%;
@@ -43,11 +47,20 @@
 }
 .file {
 	.dropzone {
+		border: 2px dashed $accent;
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		background-color: $grey-light;
-		height: 5rem;
+		padding: 2rem 0;
 		width: 100%;
+		cursor: pointer;
+		img {
+			margin-bottom: 1rem;
+		}
 	}
+}
+.files {
+	font-size: 1.8rem;
 }

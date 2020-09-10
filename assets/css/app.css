@@ -624,12 +624,24 @@ body {
     width: 50%;
     max-width: 30rem;
   }
+  .form-grid .files {
+    grid-column: 1 / -1;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    width: 50%;
+    max-width: 30rem;
+  }
 }
 
 .file .dropzone {
+  border: 2px dashed #6abe45;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -637,8 +649,17 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #d8dfee;
-  height: 5rem;
+  padding: 2rem 0;
   width: 100%;
+  cursor: pointer;
+}
+
+.file .dropzone img {
+  margin-bottom: 1rem;
+}
+
+.files {
+  font-size: 1.8rem;
 }
 
 .details {

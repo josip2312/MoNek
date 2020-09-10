@@ -70,9 +70,21 @@
 					</div>
 				</div>
 				<div class="form-group file">
-					<input type="file" name="file"  required />
-					<!-- <div class="dropzone">Dodaj sliku</div> -->
+					<input
+						type="file"
+						name="photo"
+						id="photo"
+						required
+						style="display: none"
+					/>
+					<div class="dropzone">
+						<img src="../assets/img/icons/upload.svg" alt="" />
+						<span>
+							Povuci i pusti ili klikni kako bi dodao sliku
+						</span>
+					</div>
 				</div>
+				<div class="form-group files"></div>
 				<div class="form-group button">
 					<button type="submit" name="submit" class="btn">Postavi</button>
 				</div>
@@ -82,5 +94,6 @@
 		<?php include './layout/footer.php';?>
 
 		<script src="../js/header.js"></script>
+		<script src="../js/create.js"></script>
 	</body>
 </html>
