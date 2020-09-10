@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+$primary: #212529;
+$tertiary: #0097e6;
+
+$accent: #6abe45;
+$font-color: #121314;
+$white: #fffffe;
+
+$grey-light: #d8dfee;
+$grey-dark: #696b70;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+$v-20: 125em; //2000px
+$v-12: 75em; //1200px
+$v-9: 56.25em; //900px
+$v-7: 43.75em; //700px
+$v-6: 37.5em; //600px
+$v-4: 25em; //400px
+
+html {
+	font-size: 62.5%;
+	height: 100%;
+	@media only screen and(min-width:$v-20) {
+		font-size: 75%;
+	}
+	@media only screen and(max-width:$v-9) {
+		font-size: 57.5%;
+	}
+	@media only screen and(max-width:$v-7) {
+		font-size: 55%;
+	}
+	@media only screen and(max-width:$v-7) {
+		font-size: 50%;
+	}
+	@media only screen and(max-width:$v-4) {
+		font-size: 45%;
+	}
+}
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	line-height: 1.6;
+	color: $white;
+	font-size: 1.6rem;
+	background-color: #eee;
+	overflow-x: hidden;
+	height: 100%;
+}
+
+.wrapping {
+	margin: 0 auto;
+	max-width: 120rem;
+	width: 85%;
+	min-height: 91vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	//padding: 5rem 0;
+}
+
+//Headings
+.heading-1 {
+	font-size: 3rem;
+	letter-spacing: 2px;
+
+	font-weight: 300;
+
+	outline: none;
+}
+.heading-2 {
+	font-size: 2.4rem;
+
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+.heading-3 {
+	font-size: 2.4rem;
+}
+
+//buttons
+.btn {
+	display: inline-block;
+	border: 0;
+	text-decoration: none;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 0.5rem;
+	font-weight: 600;
+	color: $white;
+
+	background-color: $accent;
+	padding: 0.75em 1.2em;
+	cursor: pointer;
+
+	transition: opacity 0.2s ease-in-out;
+}
+.btn:hover {
+	opacity: 0.9;
+}
+@mixin input {
+	font-size: 1.6rem;
+
+	font-weight: 500;
+	color: $font-color;
+	padding: 1rem 1.2rem;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid $grey-light;
+	transition: border 0.2s ease-in-out;
+	background-color: $grey-light;
+}
