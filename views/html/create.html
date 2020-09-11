@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../assets/css/app.css" />
+	</head>
+	<body>
+		<header class="header">
+			<div class="wrapper">
+				<div class="logo">MoStan</div>
+				<div class="hamburger-menu">
+					<div class="menu-top"></div>
+					<div class="menu-mid"></div>
+					<div class="menu-down"></div>
+				</div>
+				<nav>
+					<ul class="nav-items">
+						<li class="nav-item">
+							<a href="#" class="nav-link">Pocetna</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">Prijava</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">Registracija</a>
+						</li>
+					</ul>
+
+					<!-- Ako je ulogiran -->
+
+					<!-- <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Pocetna</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Odjavi se</a>
+                        </li>
+                    </ul> -->
+				</nav>
+			</div>
+		</header>
+		<section class="wrapping">
+			<form class="form form-grid">
+				<div class="form-group heading">
+					<h3 class="heading-3">Postavi stan</h3>
+				</div>
+				<div class="form-left">
+					<div class="form-group">
+						<label for="name">Naziv</label>
+						<input
+							type="text"
+							name="name"
+							id="name"
+							autocomplete="on"
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="price">Cijena</label>
+						<input
+							type="number"
+							name="price"
+							id="price"
+							autocomplete="on"
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="location">Lokacija</label>
+						<input
+							type="text"
+							name="location"
+							id="location"
+							autocomplete="on"
+							required
+						/>
+					</div>
+				</div>
+				<div class="form-right">
+					<div class="form-group">
+						<label for="dimensions">Dimenzije</label>
+						<input
+							type="number"
+							name="dimensions"
+							id="dimensions"
+							autocomplete="on"
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="internet">Internet</label>
+						<div class="radio-buttons">
+							<label for="internetYes">Da</label>
+							<input
+								type="radio"
+								id="internetYes"
+								name="internet"
+								autocomplete="on"
+								value="yes"
+								required
+							/>
+							<label for="internetNo">Ne</label>
+							<input
+								type="radio"
+								id="internetNo"
+								name="internet"
+								autocomplete="on"
+								value="no"
+							/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="description">Opis</label>
+						<textarea
+							name="description"
+							id="description"
+							cols="10"
+							rows="3"
+							required
+						></textarea>
+					</div>
+				</div>
+				<div class="form-group file">
+					<input type="file" name="photo" id="photo" required />
+					<!-- <div class="dropzone">Dodaj sliku</div> -->
+				</div>
+				<div class="form-group button">
+					<button type="submit" class="btn">Postavi</button>
+				</div>
+			</form>
+		</section>
+		<footer class="footer">
+			<div class="footer-social">
+				<a href="#">
+					<img src="../assets/img/icons/fb.svg" alt="" />
+				</a>
+				<a href="#">
+					<img src="../assets/img/icons/gh.svg"" alt="" />
+				</a>
+				<a href="#">
+					<img src="../assets/img/icons/ig.svg"" alt="" />
+				</a>
+			</div>
+			<div class="footer-copyright">&copy; MoStan 2020</div>
+		</footer>
+
+		<script src="../../js/header.js"></script>
+	</body>
+</html>

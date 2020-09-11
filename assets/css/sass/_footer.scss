@@ -1,0 +1,17 @@
+.footer {
+	background-color: $primary;
+
+	.footer-social {
+		width: 50%;
+		margin: 0 auto;
+		padding: 4rem 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+	.footer-copyright {
+		text-align: center;
+		color: $grey-dark;
+		padding-bottom: 2rem;
+	}
+}
