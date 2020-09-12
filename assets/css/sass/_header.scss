@@ -3,12 +3,12 @@
 	align-items: center;
 
 	width: 100%;
-	height: 9vh;
+	/* height: 9vh; */
 	position: sticky;
 	top: 0;
-	flex: 1;
+
 	background-color: $primary;
-	z-index: 10;
+	z-index: 100;
 }
 
 .wrapper {
@@ -21,6 +21,7 @@
 	margin: 0 auto;
 
 	.logo {
+		padding: 1.75rem 0;
 		font-family: 'Lobster', cursive;
 		font-size: 2.5rem;
 	}
@@ -28,29 +29,36 @@
 		@media only screen and(min-width:$v-6) {
 			display: none;
 		}
+		padding: 2.5rem;
 		position: relative;
-		top: 0.5rem;
-		width: 3rem;
-		height: 3rem;
-		display: block;
-
-		cursor: pointer;
-		.menu-top,
-		.menu-mid,
-		.menu-down {
+		margin-right: -1.25rem;
+		span {
 			position: absolute;
-			top: 0;
-			left: 0;
-			height: 0.3rem;
 			width: 3rem;
+			height: 3px;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%);
 			background-color: $white;
+			pointer-events: none;
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				width: 3rem;
+				height: 3px;
+				top: 50%;
+			}
+			&::before {
+				background-color: $white;
+				top: -1rem;
+			}
+			&::after {
+				background-color: $white;
+				top: 1rem;
+			}
 		}
-		.menu-mid {
-			top: 1rem;
-		}
-		.menu-down {
-			top: 2rem;
-		}
+		cursor: pointer;
 	}
 }
 nav {
@@ -65,36 +73,114 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 
+	.nav-item {
+		form {
+			display: flex;
+			padding: 0 2rem;
+			align-items: center;
+		}
+
+		button {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: $white;
+		}
+		.nav-link {
+			display: flex;
+			align-items: center;
+			padding: 0 2rem;
+			color: $white;
+			img {
+				margin-right: 1rem;
+				width: 2.2rem;
+				height: 2.2rem;
+			}
+		}
+	}
+
 	@media only screen and(max-width:$v-6) {
 		position: fixed;
 		top: 0;
 		right: 0;
 		flex-direction: column;
 		justify-content: center;
-		z-index: 20;
 
-		top: 9vh;
+		z-index: 10;
+
 		background-color: $primary;
+		top: 7rem;
 		width: 50vw;
-		height: 91vh;
+		height: 100vh;
 		.nav-item {
-			font-size: 2.2rem;
-			padding: 2rem !important;
+			.nav-link {
+				font-size: 2.5rem;
+				padding: 2.2rem 0 !important;
+				img {
+					margin-right: 1.5rem;
+					width: 3rem;
+					height: 3rem;
+				}
+			}
 		}
 
 		transform: translateX(50vw);
 		transition: transform 0.2s ease-in-out;
 	}
-
-	.nav-item {
-		padding: 0 2rem;
-
-		.nav-link {
-			color: $white;
-		}
-	}
 }
 
 .open {
 	transform: translateX(0);
+}
+
+.mobile-nav {
+	display: none;
+	@media only screen and(max-width:$v-6) {
+		z-index: 100;
+		background-color: $primary;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		height: 9vh;
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		& > * {
+			font-size: 1.8rem;
+			flex: 1;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img {
+				margin-right: 1rem;
+				width: 2.2rem;
+				height: 2.2rem;
+			}
+			span {
+				text-decoration: none;
+				color: $white;
+			}
+		}
+
+		&__logout {
+			form {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			button {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: $white;
+			}
+		}
+	}
 }

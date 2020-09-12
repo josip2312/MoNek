@@ -87,11 +87,14 @@ img:not([alt]) {
 	}
 }
 a {
+	color: inherit;
+	display: inline-block;
 	text-decoration: none;
 }
 button {
 	background: none;
 	border: none;
+	cursor: pointer;
 }
 
 h1,

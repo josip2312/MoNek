@@ -3,8 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>MoStan</title>
 		<link rel="stylesheet" href="../assets/css/app.css" />
+		<link rel="icon" type="image/png" href="../assets/img/icons/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="../assets/img/icons/favicon-16x16.png" sizes="16x16" />
 	</head>
 	<body>
 		
@@ -64,7 +66,7 @@
 							name="description"
 							id="description"
 							cols="10"
-							rows="3"
+							rows="4"
 							required
 						></textarea>
 					</div>
@@ -72,7 +74,7 @@
 				<div class="form-group file">
 					<input
 						type="file"
-						name="photo"
+						name="file"
 						id="photo"
 						required
 						style="display: none"

@@ -24,6 +24,8 @@ if (isset($_POST['submit'])) {
     $fileError = $file["error"];
     $fileSize = $file["size"];
 
+
+    
     $fileExt = explode(".", $fileName);
     $fileActualExt = strtolower(end($fileExt));
 
@@ -55,15 +57,16 @@ if (isset($_POST['submit'])) {
                         mysqli_stmt_bind_param($stmt, "sddsss", $_POST['name'], $dimensions, $price, $location, $description, $imageFullName);
                         mysqli_stmt_execute($stmt);
 
+                        
                         $moved = move_uploaded_file($fileTempName, $fileDestination);
 
                         if( $moved ) {
                             echo "Successfully uploaded";
                             header("Location: ../views/index.php?upload=succes");
                         exit();         
-                          } else {
+                        } else {
                             echo "Not uploaded because of error #".$_FILES["file"]["error"];
-                          }
+                        }
 
                         
                     }

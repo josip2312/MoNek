@@ -8,3 +8,11 @@ menu.addEventListener('click', (e) => {
 		navigation.classList.add('open');
 	}
 });
+
+document.addEventListener('click', (e) => {
+	const sidebar = document.querySelector('ul');
+
+	if (e.target !== sidebar && e.target !== menu) {
+		sidebar.classList.remove('open');
+	}
+});

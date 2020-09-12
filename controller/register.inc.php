@@ -44,7 +44,9 @@ if(isset($_POST['submit'])){
 
                     mysqli_stmt_bind_param($stmt,"ssss",$name,$lastName,$email,$hashedPwd);
                     mysqli_stmt_execute($stmt);
+                    
                     header("Location: ../views/register.php?signup=succes");
+                    
                     exit();
                 }
             }

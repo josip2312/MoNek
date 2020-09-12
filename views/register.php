@@ -3,11 +3,13 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>MoStan</title>
 		<link rel="stylesheet" href="../assets/css/app.css" />
+		<link rel="icon" href="../assets/img/icons/MoStan.png" >
+		<link rel="icon" type="image/png" href="../assets/img/icons/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="../assets/img/icons/favicon-16x16.png" sizes="16x16" />
 	</head>
 	<body>
-		
 	<?php 
 
 		include './layout/header.php';
@@ -55,6 +57,7 @@
 						name="password"
 						id="password"
 						autocomplete="on"
+						required
 					/>
 				</div>
 				<div class="form-group">
