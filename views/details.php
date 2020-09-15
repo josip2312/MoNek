@@ -3,8 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>MoStan</title>
 		<link rel="stylesheet" href="../assets/css/app.css" />
+		<link rel="icon" type="image/png" href="../assets/img/icons/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="../assets/img/icons/favicon-16x16.png" sizes="16x16" />
 	</head>
 	<body>
 		
@@ -14,6 +16,11 @@
 		
 		include_once '../controller/connection.inc.php';
 		$id = $_GET['id'];
+		$user_id = null;
+		if(isset($_SESSION['userId'])){
+			$user_id = $_SESSION['userId'];
+		}
+
 		$sql = "SELECT * FROM stanovi WHERE id = $id ";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -58,7 +65,7 @@
 				</div>
 			</div>
 			<div class="details__datepicker">
-				<form class="form">
+				<form class="form" action="../controller/rezervacija.inc.php?stan_id=<?=$id?>&&user_id=<?=$user_id?>" method="post">
 					<div class="form-group heading">
 						<h3 class="heading-3">Rezerviraj mjesto</h3>
 					</div>
@@ -76,7 +83,7 @@
 						</div>
 					</div>
 					<div class="form-group button">
-						<button class="btn" type="submit">Rezerviraj</button>
+						<button class="btn" type="submit" name="sumit">Rezerviraj</button>
 					</div>
 				</form>
 			</div>

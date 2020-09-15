@@ -1,5 +1,6 @@
 .footer {
 	background-color: $primary;
+	margin-top: auto;
 
 	.footer-social {
 		width: 50%;
@@ -13,5 +14,6 @@
 		text-align: center;
 		color: $grey-dark;
 		padding-bottom: 2rem;
+		padding-bottom: 10vh;
 	}
 }

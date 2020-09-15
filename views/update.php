@@ -11,12 +11,34 @@
 					<body>
 
 <?php
-	include './layout/header.php';
+    include './layout/header.php';
+    
+
 
 	if (isset($_SESSION['userId']) && $_SESSION['uloga'] == "admin") {
+
+        include_once '../controller/connection.inc.php';
+		$id = $_GET['id'];
+		$sql = "SELECT * FROM stanovi WHERE id = $id ";
+		$stmt = mysqli_stmt_init($conn);
+		if (!mysqli_stmt_prepare($stmt, $sql)) {
+			echo "SQL statement failed!";
+		} else {
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
+			$row = mysqli_fetch_assoc($result);
+            $naziv = $row['naziv'];
+            $cijena = $row['cijena'];
+            $dimenzije = $row['dimenzije'];
+            $lokacija = $row['lokacija'];
+            $opis = $row['opis'];
+            $putanja = $row['putanja'];
+        }
+        
+
 		echo '	
 						<section class="wrapping create">
-							<form class="form form-grid" action="../controller/gallery.inc.php" method="post" enctype="multipart/form-data">
+							<form class="form form-grid" action="../controller/update.inc.php?id='.$id.'" method="post" enctype="multipart/form-data">
 								<div class="form-group heading">
 									<h3 class="heading-3">Postavi stan</h3>
 								</div>
@@ -26,7 +48,8 @@
 										<input
 											type="text"
 											name="name"
-											id="name"
+                                            id="name"
+                                            value='.$naziv.'
 											autocomplete="on"
 											required
 										/>
@@ -36,7 +59,8 @@
 										<input
 											type="number"
 											name="price"
-											id="price"
+                                            id="price"
+                                            value='.$cijena.'
 											autocomplete="on"
 											required
 										/>
@@ -46,7 +70,8 @@
 										<input
 											type="text"
 											name="location"
-											id="location"
+                                            id="location"
+                                            value='.$lokacija.'
 											autocomplete="on"
 											required
 										/>
@@ -58,7 +83,8 @@
 										<input
 											type="number"
 											name="dimensions"
-											id="dimensions"
+                                            id="dimensions"
+                                            value='.$dimenzije.'
 											autocomplete="on"
 											required
 										/>
@@ -68,10 +94,10 @@
 										<textarea
 											name="description"
 											id="description"
-											cols="10"
+                                            cols="10"
 											rows="4"
 											required
-										></textarea>
+										>'.$opis.'</textarea>
 									</div>
 								</div>
 								<div class="form-group file">
@@ -79,7 +105,6 @@
 										type="file"
 										name="file"
 										id="photo"
-										required
 										style="display: none"
 									/>
 									<div class="dropzone">
@@ -91,7 +116,7 @@
 								</div>
 								<div class="form-group files"></div>
 								<div class="form-group button">
-									<button type="submit" name="submit" class="btn">Postavi</button>
+									<button type="submit" name="update" class="btn">Uredi</button>
 								</div>
 							</form>
 						</section>

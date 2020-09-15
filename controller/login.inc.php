@@ -32,6 +32,7 @@ if(isset($_POST['submit'])){
                 else if($pwdCheck == true) {
                     session_start();
                     $_SESSION['userId'] = $row['id'];
+                    $_SESSION['uloga'] = $row['uloga'];
                     header("Location: ../views/index.php?login=succes");
                     exit();
                 }

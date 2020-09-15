@@ -10,6 +10,6 @@ dropzone.addEventListener('click', (e) => {
 
 fileInput.addEventListener('change', (e) => {
 	const p = document.createElement('p');
-	p.innerText = `Filename: ${fileInput.files[0].name}`;
+	p.innerText = `Slika: ${fileInput.files[0].name}`;
 	files.appendChild(p);
 });

@@ -11,7 +11,8 @@
 	background: $white;
 	box-shadow: 0 2px 8px 0 hsla(0, 0%, 0%, 0.3);
 
-	animation: down 0.5s forwards;
+	animation: down 1s ease forwards;
+
 	.form-group {
 		display: flex;
 		flex-direction: column;
@@ -60,10 +61,7 @@
 			font-size: 1.6rem;
 			background-color: $grey-light;
 		}
+		&:last-child {
+		}
 	}
-}
-
-.login {
-}
-.register {
 }

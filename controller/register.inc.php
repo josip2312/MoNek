@@ -7,6 +7,7 @@ if(isset($_POST['submit'])){
     $lastName = $_POST['lastname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $admin = "user";
 
     if(empty($name) || empty($lastName) || empty($email) || empty($password)){
         header("Location: ../views/register.php?error=emptyfields&name=".$name."&lastname=".$lastName."&email=".$email);
@@ -33,7 +34,7 @@ if(isset($_POST['submit'])){
                 exit();
             }
             else{
-                $sql = "INSERT INTO korisnik (ime,prezime,email,lozinka) VALUES (?,?,?,?)";
+                $sql = "INSERT INTO korisnik (ime,prezime,email,lozinka,uloga) VALUES (?,?,?,?,?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                     header("Location: ../views/register.php?error=sqlerror1");
@@ -42,9 +43,11 @@ if(isset($_POST['submit'])){
                 else{
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-                    mysqli_stmt_bind_param($stmt,"ssss",$name,$lastName,$email,$hashedPwd);
+                    mysqli_stmt_bind_param($stmt,"sssss",$name,$lastName,$email,$hashedPwd,$admin);
                     mysqli_stmt_execute($stmt);
+                    
                     header("Location: ../views/register.php?signup=succes");
+                    
                     exit();
                 }
             }

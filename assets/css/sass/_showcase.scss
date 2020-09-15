@@ -26,6 +26,8 @@
 
 	color: $font-color;
 
+	animation: down 1s ease forwards;
+
 	& > * + * {
 		margin-top: 2rem;
 	}
@@ -54,16 +56,39 @@
 
 	&__name {
 		text-align: center;
-		font-size: 2rem;
+		font-size: 2.2rem;
+		font-weight: 600;
 	}
-	&__inner {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-	}
+	&__inner,
 	&__outer {
 		display: flex;
 		align-items: center;
+		justify-content: space-around;
+		margin: 0;
+		padding: 2rem 0;
+		background-color: $grey-light;
+		border-radius: 3px;
+		& > * {
+			font-weight: 600;
+			flex: 1;
+			img {
+				margin-bottom: 0.5rem;
+				width: 2.5rem;
+				height: 2.5rem;
+			}
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	&__outer {
+		margin-top: 2rem;
+	}
+	&__buttons {
+		display: flex;
+		margin: 2rem auto;
+		width: 75%;
 		justify-content: space-around;
 	}
 }

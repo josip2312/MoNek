@@ -4,8 +4,6 @@
 
 .form-grid {
 	@media only screen and(min-width:$v-9) {
-		/* flex-direction: row;
-        max-width: 100%; */
 		.form-left {
 			flex: 1;
 			margin-right: 1rem;
@@ -56,6 +54,10 @@
 		padding: 2rem 0;
 		width: 100%;
 		cursor: pointer;
+
+		span {
+			text-align: center;
+		}
 		img {
 			margin-bottom: 1rem;
 		}
