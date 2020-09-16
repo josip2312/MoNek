@@ -127,6 +127,7 @@ h4 {
 
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 @media only screen and (min-width: 125em) {
@@ -167,7 +168,9 @@ body {
   font-size: 1.6rem;
   background-color: #eee;
   overflow-x: hidden;
-  position: relative;
+  height: 100%;
+  /* display: flex;
+	flex-direction: column; */
 }
 
 .wrapping {
@@ -430,7 +433,7 @@ body {
 @media only screen and (max-width: 37.5em) {
   .nav-items {
     position: fixed;
-    top: 6rem;
+    top: 8vh;
     right: 0;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

@@ -12,10 +12,10 @@
     $zauzet = false;    
 
     if(!$user_id){
-        header("Location: ../views/login.php?id=".$stan_id."&&msg=Prijavite se!");
+        header("Location: ../views/login.php?id=".$stan_id."&msg=Prijavite se!");
         exit();
     } elseif (!$ulazak || !$izlazak) {
-        header("Location: ../views/details.php?id=".$stan_id."&&msg=Unesite datum!");
+        header("Location: ../views/details.php?id=".$stan_id."&msg=Unesite datum!");
         exit();
     } elseif ($ulazak < $izlazak && date('Y-m-d') < $ulazak){
         require 'connection.inc.php';
@@ -23,7 +23,7 @@
         $sql = "SELECT * FROM ugovor WHERE id_stanovi='$stan_id'";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../views/details.php?id=".$stan_id."&&msg=sqlerror");
+            header("Location: ../views/details.php?id=".$stan_id."&msg=sqlerror");
             exit();
         }else {
             mysqli_stmt_execute($stmt);
@@ -40,7 +40,7 @@
                     if($inVal or $outVal)
                     {   
                         $zauzet = true;
-                        header("Location: ../views/details.php?id=".$stan_id."&&msg=Stan je zauzet od ". $result['useljenje'] . "do ". $result['iseljenje']);
+                        header("Location: ../views/details.php?id=".$stan_id."&msg=Stan je zauzet od ". $result['useljenje'] . "do ". $result['iseljenje']);
                         exit();
                     } 
                 }
@@ -61,7 +61,7 @@
                     $sql = "INSERT INTO ugovor (useljenje,iseljenje,cijena_ugovora,id_stanovi,id_korisnik) VALUES (?,?,?,?,?)";
                     $stmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
-                        header("Location: ../views/details.php?id=".$stan_id."&&msg=sqlerror1");
+                        header("Location: ../views/details.php?id=".$stan_id."&msg=sqlerror1");
                         exit();
                     }
                     else{
@@ -72,13 +72,13 @@
                         mysqli_stmt_bind_param($stmt,"ssdii",$ulazak,$izlazak,$cijena,$stan_id,$user_id);
                         mysqli_stmt_execute($stmt);
                         
-                        header("Location: ../views/details.php?id=".$stan_id."&&msg=Uspješna rezervacija od ".$ulazak." do ". $izlazak.". Ukupan trošak: " . $cijena);
+                        header("Location: ../views/details.php?id=".$stan_id."&msg=Uspješna rezervacija od ".$ulazak." do ". $izlazak.". Ukupan trošak: " . $cijena);
                         exit();
                     }
                 }
         }
     } else {
-        header("Location: ../views/details.php?id=".$stan_id."&&msg=Unesite valjani datum");
+        header("Location: ../views/details.php?id=".$stan_id."&msg=Unesite valjani datum");
         exit();
     }
 

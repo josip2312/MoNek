@@ -89,7 +89,13 @@
 			</div>
 		</div>
 
-		<?php include './layout/footer.php';?>
+		<?php 
+			if(isset($_GET['msg'])){
+            	include './layout/modal.php';
+            }
+            	
+			include './layout/footer.php';
+		?>
 
 		<script src="../js/header.js"></script>
 	</body>

@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
 
                         if( $moved ) {
                             echo "Successfully uploaded";
-                            header("Location: ../views/index.php?upload=succes");
+                            header("Location: ../views/index.php?msg=Objavili ste stan!");
                         exit();         
                         } else {
                             echo "Not uploaded because of error #".$_FILES["file"]["error"];

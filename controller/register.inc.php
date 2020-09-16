@@ -30,14 +30,14 @@ if(isset($_POST['submit'])){
             mysqli_stmt_store_result($stmt);
             $resultCheck = mysqli_stmt_num_rows($stmt);
             if ($resultCheck > 0) {
-                header("Location: ../views/register.php?error=emailtaken");
+                header("Location: ../views/register.php?msg=Email zauzet");
                 exit();
             }
             else{
                 $sql = "INSERT INTO korisnik (ime,prezime,email,lozinka,uloga) VALUES (?,?,?,?,?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    header("Location: ../views/register.php?error=sqlerror1");
+                    header("Location: ../views/register.php?msg=sqlerror1");
                     exit();
                 }
                 else{
@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
                     mysqli_stmt_bind_param($stmt,"sssss",$name,$lastName,$email,$hashedPwd,$admin);
                     mysqli_stmt_execute($stmt);
                     
-                    header("Location: ../views/register.php?signup=succes");
+                    header("Location: ../views/login.php?msg=Uspješna registracija. Prijavite se !");
                     
                     exit();
                 }

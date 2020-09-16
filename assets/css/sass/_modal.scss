@@ -1,0 +1,29 @@
+.modal {
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 75%;
+	max-width: 35rem;
+	padding: 5rem 3.5rem;
+	background-color: $accent;
+	border-radius: 3px;
+
+	font-size: 2rem;
+	transition: opacity 0.2s ease-in-out;
+
+	img {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		width: 2.5rem;
+		height: 2.5rem;
+		cursor: pointer;
+	}
+}

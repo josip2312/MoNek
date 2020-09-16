@@ -66,8 +66,17 @@
 			</form>
 		</section>
 
-		<?php include './layout/footer.php';?>
 
+
+		<?php 
+			if(isset($_GET['msg'])){
+                include './layout/modal.php';
+            }
+			include './layout/footer.php';
+		?>
+
+		
+		<script src="../js/modal.js"></script>
 		<script src="../js/header.js"></script>
 	</body>
 </html>

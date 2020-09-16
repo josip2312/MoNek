@@ -7,14 +7,14 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
 
     if(empty($email) || empty($password)){
-        header("Location: ../views/login.php?error=emptyfields&email=".$email);
+        header("Location: ../views/login.php?msg=popunite polja&email=".$email);
         exit();
     }
     else{
         $sql = "SELECT * FROM korisnik WHERE email = ?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../views/login.php?error=sqlerror");
+            header("Location: ../views/login.php?msg=sqlerror");
             exit();
         }
         else {
@@ -26,23 +26,23 @@ if(isset($_POST['submit'])){
                 $pwdCheck = password_verify($password, $row['lozinka']);
                 if ($pwdCheck == false) {
                     print_r($row);
-                    header("Location: ../views/login.php?error=wrongpwd");
+                    header("Location: ../views/login.php?msg=Netočna lozinka!");
                     exit();     
                 }
                 else if($pwdCheck == true) {
                     session_start();
                     $_SESSION['userId'] = $row['id'];
                     $_SESSION['uloga'] = $row['uloga'];
-                    header("Location: ../views/index.php?login=succes");
+                    header("Location: ../views/index.php?msg=Uspješna prijava!");
                     exit();
                 }
                 else{
-                    header("Location: ../views/login.php?error=wrongpwd");
+                    header("Location: ../views/login.php?msg=Netočna lozinka");
                     exit();
                 }
             }
             else {
-                header("Location: ../views/login.php?error=nouser");
+                header("Location: ../views/login.php?msg=Korisnik ne postoji!");
                 exit(); 
             }
         }

@@ -25,8 +25,23 @@
 			<div class="showcase">
 				<?php
 					include_once '../controller/connection.inc.php';
+					
+					if (isset($_GET['pageno'])) {
+						$pageno = $_GET['pageno'];
+					} else {
+						$pageno = 1;
+					}
 
-					$sql = "SELECT * FROM stanovi ORDER BY id DESC";
+					$no_of_records_per_page = 2;
+					$offset = ($pageno-1) * $no_of_records_per_page; 
+
+					
+					$total_pages_sql = "SELECT COUNT(*) FROM stanovi";
+					$result = mysqli_query($conn,$total_pages_sql);
+					$total_rows = mysqli_fetch_array($result)[0];
+					$total_pages = ceil($total_rows / $no_of_records_per_page);
+									
+					$sql = "SELECT * FROM stanovi ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
 					$stmt = mysqli_stmt_init($conn);
 					if (!mysqli_stmt_prepare($stmt, $sql)) {
 						echo "SQL statement failed!";
@@ -98,13 +113,31 @@
 					}
 				
 				?>
+				<div class="pagination">
+					<a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">
+						<img src="../assets/img/icons/arrowleft.svg" alt="">
+					</a>
+					<a href="" class="active">
+						<?= $pageno ?>
+					</a>
+					<a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">
+						<img src="../assets/img/icons/arrowright.svg" alt="">
+					</a>
+				</div>
+			
+
+			</div>
 
 			
-				
-			</div>
 		</main>
+		
 
-		<?php include './layout/footer.php';?>
+		<?php 
+			if(isset($_GET['msg'])){
+                include './layout/modal.php';
+            }
+			include './layout/footer.php';
+		?>
 
 		<script src="../js/header.js"></script>
 	</body>
